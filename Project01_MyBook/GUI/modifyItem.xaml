@@ -1,0 +1,208 @@
+﻿<Window x:Class="Project01_MyBook.GUI.modifyItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project01_MyBook"
+        xmlns:helpers="clr-namespace:Project01_MyBook.Helpers"
+        mc:Ignorable="d"
+        Title="NewBook" FontFamily="Inter" Height="300" Width="400" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
+    <Window.Resources>
+        <helpers:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+        <ImageBrush x:Key="CloseButton.Pressed.Background" ImageSource="{Binding closePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MaxButton.Pressed.Background" ImageSource="{Binding maximizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Background" ImageSource="{Binding restore, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="ReDownButton.Pressed.Background" ImageSource="{Binding restorePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+        <ImageBrush x:Key="MinButton.Pressed.Background" ImageSource="{Binding minimizePressed, Converter={StaticResource absoluteConverter}}" Stretch="Fill"/>
+
+        <Style x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource CloseButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource CloseButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MaxButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MaxButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MaxButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ReDownButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="False">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource ReDownButton.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource ReDownButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource ReDownButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MinButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MinButton.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource MinButton.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Border Background="#FFFFFF" BorderBrush="#EBECF0"
+                    BorderThickness="3"
+                    CornerRadius="20" x:Name="border"/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Height="36" Width="117"
+                    Margin="0,25,40,0"
+                    DataContext="{Binding _icons}">
+            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Border.Background>
+                <Button Style="{DynamicResource MinButton}" x:Name="minButton" BorderThickness="0" Height="24" Width="24"
+                             Click="minButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{Binding minimize, Converter={StaticResource absoluteConverter}}"/>
+
+                    </Button.Background>
+                </Button>
+            </Border>
+
+            <Border CornerRadius="50" Margin="0,0,4,0" Width="36">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Border.Background>
+                <Canvas>
+                    <Button Style="{DynamicResource MaxButton}" x:Name="maxButton" BorderThickness="0" Height="18" Width="18"
+                             Click="maxButton_Click" Canvas.Left="9" Canvas.Top="9">
+                        <Button.Background>
+                            <ImageBrush ImageSource="{Binding maximize, Converter={StaticResource absoluteConverter}}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Style="{DynamicResource ReDownButton}" x:Name="reDownButton" BorderThickness="0" Height="24" Width="24"
+                             Click="maxButton_Click" Canvas.Left="6" Canvas.Top="6"/>
+                </Canvas>
+            </Border>
+
+            <Border CornerRadius="50" Width="36">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity="0.6"/>
+                </Border.Background>
+                <Button Style="{DynamicResource CloseButton}" x:Name="closeButton" BorderThickness="0" Height="24" Width="24"
+                             Click="closeButton_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{Binding close, Converter={StaticResource absoluteConverter}}"/>
+                    </Button.Background>
+                </Button>
+            </Border>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" DataContext="{Binding _tobDTO}"
+                    Margin="37,85,0,185" 
+                    HorizontalAlignment="Center" 
+                    Width="269" Height="30">
+            <Label FontSize="16" FontWeight="Medium" Height="30"
+                   VerticalAlignment="Top" Margin="0,0,5,0">ID:</Label>
+            <TextBox x:Name="idType"
+                     Text="{Binding tobID}"
+                     Width="234" Height="30" 
+                     FontSize="14" VerticalContentAlignment="Center"
+                     Background="LightGray"
+                     IsEnabled="False"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" DataContext="{Binding _tobDTO}"
+                    HorizontalAlignment="Center"
+                    Height="30" Margin="0,145,0,125" Width="312">
+            <Label FontSize="16" FontWeight="Medium" Height="30"
+                   VerticalAlignment="Top" Margin="0,0,5,0" Content="Thể loại:"></Label>
+            <TextBox x:Name="nameType"
+                     Text="{Binding tobName}" 
+                     Width="234" Height="30" VerticalAlignment="Top"
+                     FontSize="14" VerticalContentAlignment="Center"
+                     Margin="0,0,5,0"></TextBox>
+        </StackPanel>
+
+        <Button x:Name="save" Width="100" Height="35" Click="save_Click"
+                Cursor="Hand" Background="Green"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="25"
+                IsDefault="True">
+            <Label Foreground="White">Lưu</Label>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>
+

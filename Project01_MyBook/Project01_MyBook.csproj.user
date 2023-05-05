@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="GUI\addNewBookWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\addNewCoupon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\addNewOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\analysicRevenue.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\BestSelling.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\DetailBookScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\DetailOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\manageCoupon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\manageOrders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\manageProducts.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\modifyCoupon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\modifyItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\modifyTypeOfBook.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\saleAnalysic.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\settingsScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\uploadDataWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="GUI\addNewBookWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\addNewCoupon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\addNewOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\analysicRevenue.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\BestSelling.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\DetailBookScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\DetailOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\manageCoupon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\manageOrders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\manageProducts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\modifyCoupon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\modifyItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\modifyTypeOfBook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\saleAnalysic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\settingsScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\uploadDataWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
