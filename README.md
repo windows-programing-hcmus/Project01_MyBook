@@ -8,7 +8,7 @@ Book Store Management System
 **Link github**: https://github.com/windows-programing-hcmus/Project01_MyBook.git
 
 ### Hướng dẫn cài đặt
-ahha
+
 Sử dụng file DBBookShop.sql trong thư mục project để tạo cấu trúc cơ sở dữ liệu
 
 Start debug project
